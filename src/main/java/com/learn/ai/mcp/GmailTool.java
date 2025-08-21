@@ -5,6 +5,7 @@ import com.google.api.services.gmail.model.ListMessagesResponse;
 import com.google.api.services.gmail.model.Message;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,11 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 public class GmailTool {
-    private final Gmail gmailService;
 
-    public GmailTool(Gmail gmailService) {
-        this.gmailService = gmailService;
-    }
+    @Autowired
+    private Gmail gmailService;
 
     @Tool(name = "get-emails", description = "Get last 10 emails for a given Gmail account")
     public List<Map<String, Object>> getEmails(@ToolParam String email) throws IOException {

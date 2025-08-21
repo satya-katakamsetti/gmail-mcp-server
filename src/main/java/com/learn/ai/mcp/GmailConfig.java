@@ -24,7 +24,6 @@ public class GmailConfig {
     private static final java.io.File TOKENS_DIRECTORY = new java.io.File("tokens");
 
     private static final List<String> SCOPES = List.of(GmailScopes.GMAIL_READONLY);
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
     private final CredentialsLoader credentialsLoader;
 
     public GmailConfig(CredentialsLoader credentialsLoader) {
